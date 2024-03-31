@@ -1,27 +1,19 @@
-import { useEffect, useState } from "react";
-import Axios from "../services/api-client";
-interface Game {
-  id: number;
-  name: string;
-}
-interface GamesResponse {
-  count: number;
-  results: Game[];
-}
+
+import useGames from "../hooks/useGames";
+import { Text } from "@chakra-ui/react";
+
 const GameGeid = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  useEffect(() => {
-    Axios.get<GamesResponse>("/games").then((res) =>
-      setGames(res.data.results)
-    );
-  }, []);
+  const { errors, games } = useGames();
 
   return (
-    <ul>
-      {games.map((game) => (
-        <li key={game.id}>{game.name}</li>
-      ))}
-    </ul>
+    <>
+      {errors && <Text>{errors}</Text>}
+      <ul>
+        {games.map((game) => (
+          <li key={game.id}>{game.name}</li>
+        ))}
+      </ul>
+    </>
   );
 };
 
