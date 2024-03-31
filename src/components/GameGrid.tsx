@@ -7,6 +7,7 @@ import GameCardContainer from "./GameCardContainer";
 const GameGeid = () => {
   const { errors, games, isLoading } = useGames();
   const skeletons = [1, 2, 3, 4, 5, 6];
+
   return (
     <>
       {errors && <Text>{errors}</Text>}
