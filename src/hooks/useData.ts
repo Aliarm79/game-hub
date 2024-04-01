@@ -1,6 +1,7 @@
 import { AxiosRequestConfig, CanceledError } from "axios";
 import { useState, useEffect } from "react";
 import Axios from "../services/api-client";
+import { GameQuery } from "../App";
 
 interface DataResponse<T> {
   count: number;
@@ -10,7 +11,7 @@ interface DataResponse<T> {
 const useData = <T>(
   endpoint: string,
   requestConfig?: AxiosRequestConfig,
-  dep?: number[]
+  dep?: GameQuery[]
 ) => {
   const [data, setData] = useState<T[]>([]);
   const [errors, setErrors] = useState("");
