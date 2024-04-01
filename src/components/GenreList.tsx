@@ -25,7 +25,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
       {isLoading
         ? skeletons.map((skeleton) => (
             <HStack  key={skeleton} spacing={1} paddingY="5px">
-              <SkeletonCircle size="6" />
+              <SkeletonCircle size="10" />
               <Skeleton w="100px" h={5} />
             </HStack>
           ))
